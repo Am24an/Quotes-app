@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.shalenmathew.quotesapp.presentation.screens.about_libraries_screen.AboutLibrariesScreen
 import com.shalenmathew.quotesapp.presentation.screens.bottom_nav.Screen
 import com.shalenmathew.quotesapp.presentation.screens.custom_quote.AddCustomQuoteScreen
@@ -58,6 +60,18 @@ fun AppNavigation(
                 navHost = navHost
             )
         }
+
+        composable(route = Screen.AddCustomQuote.route){ backStackEntry ->
+
+
+            AddCustomQuoteScreen(
+                paddingValues = paddingValues,
+                navHost = navHost
+            )
+
+        }
+
+
     }
 
 }

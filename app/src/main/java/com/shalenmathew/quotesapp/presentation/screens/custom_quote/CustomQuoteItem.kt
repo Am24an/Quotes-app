@@ -40,6 +40,7 @@ fun CustomQuoteItem(
     quote: CustomQuote,
     onShareClick: (CustomQuote) -> Unit,
     onDeleteClick: (CustomQuote) -> Unit,
+    onEditClick:(CustomQuote)-> Unit,
     modifier: Modifier = Modifier
 ) {
     val gradient = Brush.radialGradient(
@@ -96,7 +97,19 @@ fun CustomQuoteItem(
                         .clickable { onShareClick(quote) }
                 )
 
-                Spacer(modifier = Modifier.width(15.dp))
+                Spacer(modifier = Modifier.width(8.dp))
+
+
+                AsyncImage(
+                    model = R.drawable.edit_icon,
+                    contentDescription = "Edit",
+                    modifier = Modifier
+                        .padding(end = 5.dp, bottom = 10.dp)
+                        .size(30.dp)
+                        .clickable { onEditClick(quote) }
+                )
+
+                Spacer(modifier = Modifier.width(8.dp))
 
                 Icon(
                     imageVector = Icons.Rounded.Delete,

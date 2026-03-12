@@ -22,4 +22,8 @@ class CustomQuoteRepositoryImpl(private val db: QuoteDatabase) : CustomQuoteRepo
     override suspend fun deleteCustomQuote(quote: CustomQuote) {
         db.getCustomQuoteDao().deleteCustomQuote(quote)
     }
+
+    override suspend fun updateCustomQuote(quote: CustomQuote) {
+        db.getCustomQuoteDao().updateCustomQuote(quote)
+    }
 }

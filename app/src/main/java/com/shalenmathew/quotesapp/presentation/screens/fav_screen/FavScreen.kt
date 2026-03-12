@@ -421,6 +421,10 @@ fun FavScreen(
                                             onDeleteClick = { quoteForDeletion ->
                                                 quoteToDelete = quoteForDeletion
                                             },
+                                            onEditClick = { quoteToEdit ->
+                                                navHost.currentBackStackEntry?.savedStateHandle?.set("quote_to_edit",quoteToEdit)
+                                                navHost.navigate(Screen.AddCustomQuote.route)
+                                            },
                                             modifier = Modifier
                                                 .zIndex((customState.customQuotes.size - index).toFloat())
                                                 .graphicsLayer {

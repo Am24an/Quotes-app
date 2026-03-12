@@ -27,6 +27,7 @@ import com.shalenmathew.quotesapp.domain.usecases.custom_quote_usecases.CustomQu
 import com.shalenmathew.quotesapp.domain.usecases.custom_quote_usecases.DeleteCustomQuote
 import com.shalenmathew.quotesapp.domain.usecases.custom_quote_usecases.GetCustomQuotes
 import com.shalenmathew.quotesapp.domain.usecases.custom_quote_usecases.SaveCustomQuote
+import com.shalenmathew.quotesapp.domain.usecases.custom_quote_usecases.UpdateCustomQuote
 import com.shalenmathew.quotesapp.domain.usecases.fav_screen_usecases.FavLikedQuote
 import com.shalenmathew.quotesapp.domain.usecases.fav_screen_usecases.FavQuoteUseCase
 import com.shalenmathew.quotesapp.domain.usecases.fav_screen_usecases.GetFavQuote
@@ -206,9 +207,10 @@ object AppModule {
     fun providesCustomQuoteUseCases(
         getCustomQuotes: GetCustomQuotes,
         saveCustomQuote: SaveCustomQuote,
-        deleteCustomQuote: DeleteCustomQuote
+        deleteCustomQuote: DeleteCustomQuote,
+        updateCustomQuote: UpdateCustomQuote
     ): CustomQuoteUseCases {
-        return CustomQuoteUseCases(getCustomQuotes, saveCustomQuote, deleteCustomQuote)
+        return CustomQuoteUseCases(getCustomQuotes, saveCustomQuote, deleteCustomQuote, updateCustomQuote = updateCustomQuote)
     }
 
     @Provides
