@@ -61,15 +61,25 @@ class WidgetWorkManager @AssistedInject constructor(
 
     private suspend fun refreshAndUpdateWidget(refreshInterval: Int): Boolean {
         scheduleWidgetRefresh.scheduleWidgetRefreshWorkAlarm(getMillisFromNow(refreshInterval))
-        val quote = fetchQuoteFromNetwork() ?: quoteUseCase.getLatestQuote()
+//        val quote = fetchQuoteFromNetwork() ?: quoteUseCase.getLatestQuote()
+        val quote = getRandomLikedQuote() ?: fetchQuoteFromNetwork() ?: quoteUseCase.getLatestQuote()
         return pushQuoteToWidget(quote)
     }
 
     private suspend fun updateWidgetFromCache(): Boolean {
         Log.d(TAG, "Cache is fresh, reading from local DB")
-        return pushQuoteToWidget(quoteUseCase.getLatestQuote())
+        return pushQuoteToWidget(getRandomLikedQuote() ?: quoteUseCase.getLatestQuote())
     }
 
+    private suspend fun getRandomLikedQuote():Quote?{
+        return try{
+          quoteUseCase.getLikedQuotes().first().randomOrNull() // returns a random quote from the liked quotes list or null if the list is empty
+        }catch (e: Exception){
+            Log.d(TAG, "Exception in get Random Liked Quote", e)
+            null
+        }
+
+    }
     private suspend fun fetchQuoteFromNetwork(): Quote? {
         return try {
             val response = withTimeoutOrNull(NETWORK_TIMEOUT_MILLIS) {
