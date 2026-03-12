@@ -71,7 +71,7 @@ fun Context.createOrUpdateNotification(quote: Quote, isUpdate: Boolean = false) 
     val notificationCompatBuilder =
         NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID_NEW)
             .clearActions()
-            .setSmallIcon(R.drawable.notification_icon_black)
+            .setSmallIcon(R.drawable.notification_icon_logo)
             .setStyle(
                 NotificationCompat.BigTextStyle()
                     .setBigContentTitle("")
