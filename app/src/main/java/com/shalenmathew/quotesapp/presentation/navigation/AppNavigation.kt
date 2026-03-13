@@ -4,18 +4,17 @@ import android.content.Intent
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import com.shalenmathew.quotesapp.presentation.screens.about_libraries_screen.AboutLibrariesScreen
 import com.shalenmathew.quotesapp.presentation.screens.bottom_nav.Screen
 import com.shalenmathew.quotesapp.presentation.screens.custom_quote.AddCustomQuoteScreen
 import com.shalenmathew.quotesapp.presentation.screens.fav_screen.FavScreen
 import com.shalenmathew.quotesapp.presentation.screens.home_screen.HomeScreen
 import com.shalenmathew.quotesapp.presentation.screens.intro_screen.SplashScreen
-import com.shalenmathew.quotesapp.presentation.screens.more_apps.MoreApps
+import com.shalenmathew.quotesapp.presentation.screens.settings_screen.more_apps.MoreApps
 import com.shalenmathew.quotesapp.presentation.screens.settings_screen.SettingsScreen
+import com.shalenmathew.quotesapp.presentation.screens.settings_screen.troubleshoot.Troubleshoot
 import com.shalenmathew.quotesapp.presentation.screens.share_screen.ShareScreen
 
 @Composable
@@ -60,7 +59,6 @@ fun AppNavigation(
                 navHost = navHost
             )
         }
-
         composable(route = Screen.AddCustomQuote.route){ backStackEntry ->
 
 
@@ -69,6 +67,9 @@ fun AppNavigation(
                 navHost = navHost
             )
 
+        }
+        composable(Screen.Troubleshoot.route){
+            Troubleshoot(paddingValues)
         }
 
 

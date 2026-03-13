@@ -136,8 +136,7 @@ fun SettingsScreen(
 
             LazyColumn(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
+                    .fillMaxSize()
             ) {
 
                 item {

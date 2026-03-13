@@ -203,10 +203,8 @@ sealed class Screen(
     object Settings : Screen("Settings", true)
     object AboutLibraries : Screen("AboutLibraries", false)
     object MoreApps : Screen("MoreApps", false)
+    object Troubleshoot : Screen("Troubleshoot", false)
     object AddCustomQuote : Screen("AddCustomQuote", false)
-//    object EditCustomQuote : Screen("EditCustomQuote/{quoteId}", false){
-//        fun createRoute(quoteId: Int) = "EditCustomQuote/$quoteId"
-//    }
     companion object {
         val values: List<Screen> = listOf(Home, Fav, Splash, Share, Settings, AboutLibraries)
     }

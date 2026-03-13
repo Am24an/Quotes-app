@@ -1,7 +1,6 @@
-package com.shalenmathew.quotesapp.presentation.screens.more_apps
+package com.shalenmathew.quotesapp.presentation.screens.settings_screen.more_apps
 
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
