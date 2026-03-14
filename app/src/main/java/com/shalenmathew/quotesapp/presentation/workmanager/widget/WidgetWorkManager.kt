@@ -32,31 +32,57 @@ class WidgetWorkManager @AssistedInject constructor(
 
     override suspend fun doWork(): Result {
 
+
+
+
+        /** NETWORK FIRST APPROACH TO UPDATE WIDGET */
+//        return try {
+//
+//            Log.d(TAG, "Work started")
+
+//            val refreshInterval =
+//                context.getWidgetRefreshInterval().first() ?: DEFAULT_REFRESH_INTERVAL
+
+//            val isCacheStale = context.isWidgetCacheStale(refreshInterval)
+//
+//            val success = if (isCacheStale) {
+//                refreshAndUpdateWidget(refreshInterval)
+//            } else {
+//                updateWidgetFromCache()
+//            }
+//
+//            if (success && isCacheStale) {
+//                context.setLastAlarmTriggerMillis(System.currentTimeMillis())
+//            }
+//
+//            if (success) Result.success() else Result.retry()
+//        } catch (e: Exception) {
+//            Log.d(TAG, "Exception in doWork", e)
+//            Result.failure()
+//        }
+
+
         return try {
 
-            Log.d(TAG, "Work started")
+            /** LIKED FIRST APPROACH TO UPDATE WIDGET */
 
+            val refreshInterval = context.getWidgetRefreshInterval().first() ?: DEFAULT_REFRESH_INTERVAL
 
+            val success = refreshAndUpdateWidget(refreshInterval)
 
-            val refreshInterval =
-                context.getWidgetRefreshInterval().first() ?: DEFAULT_REFRESH_INTERVAL
-            val isCacheStale = context.isWidgetCacheStale(refreshInterval)
-
-            val success = if (isCacheStale) {
-                refreshAndUpdateWidget(refreshInterval)
-            } else {
-                updateWidgetFromCache()
-            }
-
-            if (success && isCacheStale) {
+            if (success) {
                 context.setLastAlarmTriggerMillis(System.currentTimeMillis())
+                Result.success()
+            } else {
+                Result.retry()
             }
 
-            if (success) Result.success() else Result.retry()
+
         } catch (e: Exception) {
             Log.d(TAG, "Exception in doWork", e)
             Result.failure()
         }
+
     }
 
     private suspend fun refreshAndUpdateWidget(refreshInterval: Int): Boolean {

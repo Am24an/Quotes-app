@@ -34,7 +34,7 @@ class ScheduleWidgetRefresh @Inject constructor(
 
         WorkManager.getInstance(context).enqueueUniqueWork(
             QUOTES_WIDGET_UPDATE_NAME,
-            ExistingWorkPolicy.KEEP,
+            ExistingWorkPolicy.REPLACE, // replaces with nre request
             workRequest
         )
 
