@@ -58,6 +58,18 @@ class CustomQuoteViewModel @Inject constructor(
                 _state.value = _state.value.copy(query = event.query)
                 getCustomQuotes(event.query)
             }
+
+            is CustomQuoteEvent.UpdateQuote -> {
+                viewModelScope.launch {
+                    customQuoteUseCases.updateCustomQuote(event.quote)
+                    getCustomQuotes()
+                }
+            }
         }
     }
+
+    fun getQuoteById(quoteId: Int): CustomQuote?{
+        return _state.value.customQuotes.find { it.id==quoteId }
+    }
+
 }

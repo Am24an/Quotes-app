@@ -59,6 +59,10 @@ fun CardSection(index: Int, navHost: androidx.navigation.NavHostController) {
 
                 when (card.url) {
 
+                    "troubleshoot" -> {
+                        navHost.navigate(Screen.Troubleshoot.route)
+                    }
+
                     "navigate" -> {
                         navHost.navigate(Screen.AboutLibraries.route)
                     }
@@ -75,17 +79,8 @@ fun CardSection(index: Int, navHost: androidx.navigation.NavHostController) {
 
                 }
 
-//                    if (card.url == "navigate") {
-//                        // Navigate to AboutLibraries screen
-//                        navHost.navigate(Screen.AboutLibraries.route)
-//                    } else {
-//                        // Open external URL
-//                        val intent = Intent(Intent.ACTION_VIEW, card.url.toUri())
-//                        context.startActivity(intent)
-//                    }
             }
             .clip(shape)
-//                .background(Color(0xFF1C1C1E))
             .background(customGrey2)
             .padding(horizontal = 16.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -121,6 +116,7 @@ fun CardSection(index: Int, navHost: androidx.navigation.NavHostController) {
 
 
 val cardsRow = listOf<CardRow>(
+    CardRow(icon = R.drawable.ic_troubleshooting, name = "Troubleshoot common issue", url = "troubleshoot"),
     CardRow(icon = R.drawable.ic_more_apps, name = "More Apps u might like", url = "moreApps"),
     CardRow(icon = R.drawable.ic_twitter, name = "Twitter", url = "https://x.com/shalenmathew"),
     CardRow(

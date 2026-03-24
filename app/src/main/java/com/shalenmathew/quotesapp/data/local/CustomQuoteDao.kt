@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.shalenmathew.quotesapp.domain.model.CustomQuote
 import kotlinx.coroutines.flow.Flow
 
@@ -29,4 +30,8 @@ interface CustomQuoteDao {
     """
     )
     fun searchCustomQuotes(query: String): Flow<List<CustomQuote>>
+
+    @Update
+    suspend fun updateCustomQuote(quote: CustomQuote)
+
 }

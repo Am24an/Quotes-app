@@ -7,4 +7,5 @@ interface CustomQuoteRepository {
     fun getAllCustomQuotes(query: String): Flow<List<CustomQuote>>
     suspend fun saveCustomQuote(quote: CustomQuote)
     suspend fun deleteCustomQuote(quote: CustomQuote)
+    suspend fun updateCustomQuote(quote: CustomQuote)
 }
