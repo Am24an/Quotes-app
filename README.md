@@ -36,8 +36,8 @@
 | ![ln 3](https://github.com/user-attachments/assets/6aa573aa-2f7f-49db-9a06-ba0431356352) | ![ps2](https://github.com/user-attachments/assets/bf0dc10d-e73a-4f3c-99bf-dcfbf2a8e53f) |
 |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------:|
 | ![ps3](https://github.com/user-attachments/assets/7bff2bac-7f71-43c4-9a5e-0b820bef81c8)  | ![ps4](https://github.com/user-attachments/assets/d1c42711-d1b1-406c-bb20-0faaf3ccf97b)  |
-| ![ps5](https://github.com/user-attachments/assets/4adceb39-b558-41d1-9a07-d3a8c5e37345)  | ![ps6](https://github.com/user-attachments/assets/fe16e863-6f2e-4d64-a753-6beda8a0a0b1)  | 
-| ![ps1](https://github.com/user-attachments/assets/03aaf7fc-5b3a-416b-9fe8-af6bc3747d95)  |   | 
+| ![ps5](https://github.com/user-attachments/assets/4adceb39-b558-41d1-9a07-d3a8c5e37345)  | ![ps6](https://github.com/user-attachments/assets/9e57231b-ced6-4c97-b921-7cfe7b5b6f73)  | 
+| ![ps6](https://github.com/user-attachments/assets/fe16e863-6f2e-4d64-a753-6beda8a0a0b1)  | ![ps1](https://github.com/user-attachments/assets/03aaf7fc-5b3a-416b-9fe8-af6bc3747d95) 
 
 
 ## Built With 🛠
