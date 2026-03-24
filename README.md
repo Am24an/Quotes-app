@@ -49,7 +49,7 @@
 - **Hilt**: dependency injection  
 - **Retrofit**: networking and API integration  
 - **Room**: local database for offline-first data persistence  
-- **WorkManager**: periodic background tasks (app uses this for sending notifications)  
+- **WorkManager**: periodic background tasks (app uses this for sending notifications & refresh widgets periodically)  
 - **Notifications**: notify users with new quotes
 - **Widgets**: home-screen widget that refreshes every 24 hours with new quotes
 - **CI/CD**: automated builds, lint checks, tests, and APK distribution via Discord  
