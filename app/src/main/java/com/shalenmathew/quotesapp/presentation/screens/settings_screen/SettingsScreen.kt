@@ -184,7 +184,7 @@ fun SettingsScreen(
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(end = 8.dp),
-                            text = "Widget Refresh Time",
+                            text = "Refresh Widget every",
                             color = Color.White,
                             fontFamily = GIFont,
                             fontWeight = FontWeight.Medium,
@@ -232,7 +232,7 @@ fun SettingsScreen(
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(end = 8.dp),
-                            text = "Notification Time",
+                            text = "Notify me every",
                             color = Color.White,
                             fontFamily = GIFont,
                             fontWeight = FontWeight.Medium,
