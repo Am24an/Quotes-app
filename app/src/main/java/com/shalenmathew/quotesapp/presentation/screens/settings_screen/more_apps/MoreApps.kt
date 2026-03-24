@@ -32,7 +32,7 @@ fun MoreApps(
     paddingValues: PaddingValues
 ) {
 
-    Column {
+    Column(modifier = Modifier.padding(paddingValues)) {
         AppListItem(
             paddingValues,
             imageRes = R.drawable.mf_logo,
@@ -61,7 +61,7 @@ fun AppListItem(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(paddingValues)
+//            .padding(paddingValues)
             .clickable {
                 val intent = Intent(Intent.ACTION_VIEW, repoUrl.toUri())
                 context.startActivity(intent)
@@ -84,8 +84,8 @@ fun AppListItem(
                 style = MaterialTheme.typography.titleMedium,
                 color = Color.White
             )
-            Spacer(modifier = Modifier.height(4.dp))
             Text(
+                modifier = Modifier.padding(5.dp),
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.White
