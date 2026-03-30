@@ -11,6 +11,9 @@ import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
+
 //import org.junit.Assert.assertEquals
 
 
@@ -73,6 +76,30 @@ class QuoteApiTest {
             assertEquals(expected = 400, actual = e.code())
         }
 
+
+    }
+
+
+    @Test
+    fun quotesApi_malinformed_throws_json_exception()=runTest{
+
+        val malinformedJson = """
+        [
+          {
+            "q": "FEAR has two meanings...",
+            "a": "Zig Ziglar"
+        
+    """.trimIndent()
+
+        val res = MockResponse()
+        res.setBody(malinformedJson)
+        server.enqueue(res)
+
+       val exception = assertFailsWith<Exception>{
+            quoteApi.getQuotesList()
+        }
+
+        assertTrue(exception is java.io.IOException || exception is com.google.gson.JsonSyntaxException)
 
     }
 
