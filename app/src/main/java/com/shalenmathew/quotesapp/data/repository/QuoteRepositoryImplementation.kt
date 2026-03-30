@@ -73,30 +73,34 @@ class QuoteRepositoryImplementation(private val api: QuoteApi, private val db: Q
 
         }.catch { e ->
 
-            val errorMessage = when (e) {
-                is IOException -> "No internet connection. Please try again."
-                is HttpException -> {
-                    when (e.code()) {
-                        400 -> "Bad Request"
-                        401 -> "Unauthorized Request"
-                        403 -> "Forbidden Request"
-                        429 -> "To many request to the server please check back in some time"
-                        500 -> "Server is down...Please try again later"
-                        else -> {
-                            "Unknown error ${e.message()},Please try again."
-                        }
-                    }
-                }
+            val errorMessage = throwExceptionMessage(e)
 
-                else -> "Something went wrong. Please try again."
-            }
-
-
-//            Log.d("TAG", "Error in getQuote: ${e.message}")
 
             emit(Resource.Error(errorMessage))
 
         }.flowOn(Dispatchers.IO)
+
+    }
+
+    fun throwExceptionMessage(e: Throwable): String{
+
+        return when (e) {
+            is IOException -> "No internet connection. Please try again."
+            is HttpException -> {
+                when (e.code()) {
+                    400 -> "Bad Request"
+                    401 -> "Unauthorized Request"
+                    403 -> "Forbidden Request"
+                    429 -> "To many request to the server please check back in some time"
+                    500 -> "Server is down...Please try again later"
+                    else -> {
+                        "Unknown error,Please try again."
+                    }
+                }
+            }
+
+            else -> "Something went wrong. Please try again."
+        }
 
     }
 
