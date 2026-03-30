@@ -103,5 +103,18 @@ class QuoteApiTest {
 
     }
 
+    @Test
+    fun quotesApi_empty_body_exception()=runTest{
+
+        val res = MockResponse()
+         res.setResponseCode(200).setBody("")
+        server.enqueue(res)
+
+        assertFailsWith<java.io.EOFException> {
+            quoteApi.getQuotesList()
+        }
+
+    }
+
 
 }
