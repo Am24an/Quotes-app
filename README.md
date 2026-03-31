@@ -3,7 +3,7 @@
 <img width="1024" height="500" alt="Quotes" src="https://github.com/user-attachments/assets/4e01e512-295f-4ea5-8a65-4a76961a7235" />
 
 
-### Quotes App is built to demonstrate the use of Modern Android development tools.
+### Quotes App is a minimalistic quotes app to fill your day with positivity and gratitude.
 ### The app follows latest android principles and components
 
 
